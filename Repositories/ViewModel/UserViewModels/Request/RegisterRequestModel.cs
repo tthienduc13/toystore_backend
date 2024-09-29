@@ -1,7 +1,7 @@
 namespace ToyStore.Request.UserViewModel;
 
 
-public class RegisterModelRequest
+public class RegisterRequestModel
 {
     public string Username { get; set; }
     public string Email { get; set; }

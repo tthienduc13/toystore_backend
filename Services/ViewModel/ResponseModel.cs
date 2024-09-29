@@ -14,4 +14,10 @@ public class ResponseModel
         Message = message;
         Data = data;
     }
+    
+    public ResponseModel(HttpStatusCode status, string message)
+    {
+        Status = status;
+        Message = message;
+    }
 }

@@ -17,4 +17,11 @@ public class UserRepository: BaseRepository<User>, IUserRepository
         return await _entities.AnyAsync(x => x.Email.Equals(email) || x.Username.Equals(username) 
                                                                    || x.Isdelete == false );
     }
+    
+    public async Task<User> GetUserByUsername(string username)
+    {
+        return await _entities.Where(
+            x => x.Username == username || x.Email == username
+        ).FirstOrDefaultAsync();
+    }
 }

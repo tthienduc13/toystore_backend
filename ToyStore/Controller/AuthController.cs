@@ -25,9 +25,16 @@ public class AuthController: ControllerBase
     [HttpPost]
     [Route("register")]
 
-    public async Task<ResponseModel> Register([FromBody, Required] RegisterModelRequest model)
+    public async Task<ResponseModel> Register([FromBody, Required] RegisterRequestModel requestModel)
     {
-        var user = _mapper.Map<User>(model);
+        var user = _mapper.Map<User>(requestModel);
         return await _userService.Register(user);
+    }
+    
+    [HttpPost]
+    [Route("login")]
+    public async Task<ResponseModel> Login([FromBody, Required] LoginRequestModel requestModel)
+    {
+        return await _userService.LoginByCredentials(requestModel);
     }
 }
