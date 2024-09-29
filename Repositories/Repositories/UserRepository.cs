@@ -18,7 +18,7 @@ public class UserRepository: BaseRepository<User>, IUserRepository
                                                                    || x.Isdelete == false );
     }
     
-    public async Task<User> GetUserByUsername(string username)
+    public async Task<User?> GetUserByUsername(string username)
     {
         return await _entities.Where(
             x => x.Username == username || x.Email == username

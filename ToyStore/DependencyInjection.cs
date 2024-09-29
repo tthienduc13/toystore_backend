@@ -1,6 +1,7 @@
 using ToyStore.Mapping;
 using Repositories.Interfaces;
 using Repositories.Repositories;
+using Service.Security;
 using Services.Interfaces;
 using Services.Services;
 
@@ -19,7 +20,9 @@ public static class DependencyInjection
         
         //Others
         services.AddAutoMapper(typeof(MapperConfigProfile).Assembly);
+        services.AddScoped<ITokenGenerator, TokenGenerator>();
         services.AddScoped<IUnitOfWork, UnitOfWork>();
+        
         services.AddHttpContextAccessor();
 
         return services;

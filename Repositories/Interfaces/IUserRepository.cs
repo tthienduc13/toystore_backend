@@ -6,5 +6,5 @@ public interface IUserRepository : IRepository<User>
 {
     Task<bool> CheckUsernameEmailExist(string username, string email);
 
-    Task<User> GetUserByUsername(string username);
+    Task<User?> GetUserByUsername(string username);
 }
