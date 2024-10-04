@@ -14,9 +14,13 @@ public static class DependencyInjection
         //Repository
         services.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
         services.AddScoped<IUserRepository, UserRepository>();
+        services.AddScoped<ICategoryRepository, CategoryRepository>();
+
         
         //Service
         services.AddScoped<IUserService, UserService>();
+        services.AddScoped<ICategoryService, CategoryService>();
+        services.AddScoped<IClaimService, ClaimsService>();
         
         //Others
         services.AddAutoMapper(typeof(MapperConfigProfile).Assembly);

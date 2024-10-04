@@ -34,7 +34,7 @@ public class TokenGenerator : ITokenGenerator
             {
                 new Claim(ClaimTypes.Name, login.Username),
                 new Claim("UserId", user.Id.ToString()),
-                new Claim("Role",user.Role == RoleConstants.OWNER ? "Owner" : "Customer" ),
+                new Claim(ClaimTypes.Role,user.Role == RoleConstants.OWNER ? "Owner" : "Customer" ),
                 new Claim("Fullname", user.Fullname)
             }),
             Expires = DateTime.UtcNow.AddDays(7),
