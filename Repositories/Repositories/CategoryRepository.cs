@@ -20,4 +20,5 @@ public class CategoryRepository: BaseRepository<Category>, ICategoryRepository
     {
         return await _entities.AnyAsync(x => x.Id.Equals(categoryId) && x.Isdelete == false);
     }
+  
 }
