@@ -1,5 +1,6 @@
 using AutoMapper;
 using Repositories.Entities;
+using Repositories.ViewModel.ProductViewModels;
 using Repositories.ViewModel.UserViewModels.Response;
 using ToyStore.Request.UserViewModel;
 
@@ -12,5 +13,8 @@ public class MapperConfigProfile : Profile
         CreateMap<RegisterRequestModel, User>().ReverseMap();
         CreateMap<LoginRequestModel, User>().ReverseMap();
         CreateMap<User, LoginResponseModel>();
+        
+        //Product
+        CreateMap<CreateProductModel, Product>();
     }
 }
