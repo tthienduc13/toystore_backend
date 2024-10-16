@@ -3,6 +3,7 @@ using System.Net;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Repositories.ViewModel;
 using Repositories.ViewModel.ProductViewModels;
 using Services.Interfaces;
 using Services.ViewModels;
@@ -38,5 +39,29 @@ public class ProductController: ControllerBase
             return response;
         } 
         return await _productService.CreateProduct(model);
+    }
+    [HttpPost]
+    [Route("update/{id}")]
+    public async Task<ResponseModel> UpdateProduct([FromBody, Required] UpdateProductModel model, [FromRoute] Guid id)
+    {
+        return await _productService.UpdateProduct(id,model);
+    }
+    [HttpGet]
+    [Route("")]
+    public async Task<List<ProductResponseModel>> GetAllProduct()
+    {
+        return await _productService.GetProductAll();
+    }
+    [HttpGet]
+    [Route("{id}")]
+    public async Task<ProductResponseModel> CreateProduct([FromRoute] Guid id)
+    {
+        return await _productService.GetProductById(id);
+    }
+    [HttpDelete]
+    [Route("{id}")]
+    public async Task<ResponseModel> DeleteProduct([FromRoute] Guid id)
+    {
+        return await _productService.DeleteProduct(id);
     }
 }

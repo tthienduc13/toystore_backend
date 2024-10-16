@@ -21,11 +21,14 @@ public static class DependencyInjection
         services.AddScoped<ICategoryRepository, CategoryRepository>();
         services.AddScoped<IProductRepository, ProductRepository>();
         
+        
         //Service
         services.AddScoped<IUserService, UserService>();
         services.AddScoped<ICategoryService, CategoryService>();
         services.AddScoped<IClaimService, ClaimsService>();
         services.AddScoped<IProductService, ProductService>();
+        services.AddScoped<ICloudinaryService, CloudinaryService>();
+
         
         //Others
         services.AddAutoMapper(typeof(MapperConfigProfile).Assembly);

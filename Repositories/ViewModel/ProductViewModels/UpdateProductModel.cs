@@ -1,11 +1,8 @@
-﻿
 using Microsoft.AspNetCore.Http;
 
-namespace Repositories.ViewModel.ProductViewModels;
+namespace Repositories.ViewModel;
 
-
-public class CreateProductModel
-{
+public class UpdateProductModel {
     public string? Name { get; set; }
 
     public string? Description { get; set; }
